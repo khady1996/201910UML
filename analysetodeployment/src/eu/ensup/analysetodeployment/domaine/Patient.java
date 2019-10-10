@@ -1,18 +1,18 @@
 package eu.ensup.analysetodeployment.domaine;
 
-public class Patient {
+public class Patient extends Personne {
 
 	private int idpat;
 	private Medecin med;
-	private String nom;
-	private String prenom;
+
+	public Patient() {
+		super();
+	}
 
 	public Patient(int idpat, Medecin med, String nom, String prenom) {
-		super();
+		super(nom, prenom);
 		this.idpat = idpat;
 		this.med = med;
-		this.nom = nom;
-		this.prenom = prenom;
 	}
 
 	public int getIdpat() {
@@ -23,14 +23,6 @@ public class Patient {
 		return this.med;
 	}
 
-	public String getNom() {
-		return this.nom;
-	}
-
-	public String getPrenom() {
-		return this.prenom;
-	}
-
 	public void setIdpat(int idpat) {
 		this.idpat = idpat;
 	}
@@ -39,12 +31,10 @@ public class Patient {
 		this.med = med;
 	}
 
-	public void setNom(String nom) {
-		this.nom = nom;
-	}
-
-	public void setPrenom(String prenom) {
-		this.prenom = prenom;
+	@Override
+	public String toString() {
+		return "Patient [idpat=" + this.idpat + ", med=" + this.med + ", nom=" + super.getNom() + ", prenom="
+				+ super.getPrenom() + "]";
 	}
 
 }
